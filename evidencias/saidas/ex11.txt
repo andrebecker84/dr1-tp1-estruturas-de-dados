@@ -1,0 +1,23 @@
+Exercício 11: Bubble Sort clássico: comparações e trocas
+────────────────────────────────────────────────────────
+N        cenário  comparações   trocas  N(N-1)/2
+─────  ─────────  ───────────  ───────  ────────
+10      ordenada           45        0        45
+10     aleatória           45       28        45
+10       inversa           45       45        45
+100     ordenada        4.950        0     4.950
+100    aleatória        4.950    2.502     4.950
+100      inversa        4.950    4.950     4.950
+1.000   ordenada      499.500        0   499.500
+1.000  aleatória      499.500  248.445   499.500
+1.000    inversa      499.500  499.500   499.500
+[OK] saídas ordenadas; comparações = N(N-1)/2 em todos os cenários
+
+Crescimento: N multiplicado por 10
+──────────────────────────────────
+N      passos no pior caso (comp. + trocas)  comparações vs. N anterior
+─────  ────────────────────────────────────  ──────────────────────────
+10                                       90                           -
+100                                   9.900                        x110
+1.000                               999.000                        x101
+N x10  ->  passos x~100: crescimento quadrático, O(N²)

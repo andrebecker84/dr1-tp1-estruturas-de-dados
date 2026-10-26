@@ -1,0 +1,24 @@
+Exercício 8: Cocktail Sort: resultados
+──────────────────────────────────────
+aleatória                 [82 15 4 95 36 32 29 18 14 87 70 12] -> [4 12 14 15 18 29 32 36 70 82 87 95]
+já ordenada               [1 2 3 4 5 6 7 8 9 10 11 12]         -> [1 2 3 4 5 6 7 8 9 10 11 12]
+ordem inversa             [12 11 10 9 8 7 6 5 4 3 2 1]         -> [1 2 3 4 5 6 7 8 9 10 11 12]
+com repetidos             [5 1 4 1 5 9 2 6 5 3]                -> [1 1 2 3 4 5 5 5 6 9]
+tartaruga (menor no fim)  [2 3 4 5 6 7 8 9 10 11 12 1]         -> [1 2 3 4 5 6 7 8 9 10 11 12]
+coelho (maior no início)  [12 1 2 3 4 5 6 7 8 9 10 11]         -> [1 2 3 4 5 6 7 8 9 10 11 12]
+vazia                     []                                   -> []
+um elemento               [7]                                  -> [7]
+[OK] todas as saídas ordenadas e com os mesmos elementos da entrada
+
+Bubble tradicional x bidirecional (ambos com parada antecipada)
+───────────────────────────────────────────────────────────────
+entrada                   passagens bubble  comparações bubble  passagens cocktail  comparações cocktail
+────────────────────────  ────────────────  ──────────────────  ──────────────────  ────────────────────
+aleatória                               11                  66                   8                    60
+já ordenada                              1                  11                   1                    11
+ordem inversa                           11                  66                  12                    66
+com repetidos                            7                  42                   5                    35
+tartaruga (menor no fim)                11                  66                   3                    30
+coelho (maior no início)                 2                  21                   2                    21
+vazia                                    0                   0                   0                     0
+um elemento                              0                   0                   0                     0

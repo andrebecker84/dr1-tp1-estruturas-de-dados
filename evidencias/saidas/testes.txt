@@ -1,0 +1,24 @@
+test_binaria_acha_todos_os_presentes (tests.test_algoritmos.TestBusca.test_binaria_acha_todos_os_presentes) ... ok
+test_binaria_ausente_e_lista_vazia (tests.test_algoritmos.TestBusca.test_binaria_ausente_e_lista_vazia) ... ok
+test_binaria_respeita_log_n (tests.test_algoritmos.TestBusca.test_binaria_respeita_log_n) ... ok
+test_linear_ausente_percorre_tudo (tests.test_algoritmos.TestBusca.test_linear_ausente_percorre_tudo) ... ok
+test_linear_conta_ate_achar (tests.test_algoritmos.TestBusca.test_linear_conta_ate_achar) ... ok
+test_maior_unico_bordas (tests.test_algoritmos.TestExercicios5e6.test_maior_unico_bordas) ... ok
+test_maior_unico_igual_ao_original (tests.test_algoritmos.TestExercicios5e6.test_maior_unico_igual_ao_original) ... ok
+test_menor_quadrado (tests.test_algoritmos.TestExercicios5e6.test_menor_quadrado) ... ok
+test_menor_quadrado_rejeita_entrada_invalida (tests.test_algoritmos.TestExercicios5e6.test_menor_quadrado_rejeita_entrada_invalida) ... ok
+test_as_tres_versoes_ordenam (tests.test_algoritmos.TestOrdenacao.test_as_tres_versoes_ordenam) ... ok
+test_chave_alfabetica (tests.test_algoritmos.TestOrdenacao.test_chave_alfabetica) ... ok
+test_classico_faz_n_n_menos_1_sobre_2_comparacoes (tests.test_algoritmos.TestOrdenacao.test_classico_faz_n_n_menos_1_sobre_2_comparacoes) ... ok
+test_nao_alteram_a_entrada (tests.test_algoritmos.TestOrdenacao.test_nao_alteram_a_entrada) ... ok
+test_parada_antecipada_na_lista_ordenada (tests.test_algoritmos.TestOrdenacao.test_parada_antecipada_na_lista_ordenada) ... ok
+test_trocas_sao_as_inversoes (tests.test_algoritmos.TestOrdenacao.test_trocas_sao_as_inversoes) ... ok
+test_binaria_igual_ao_original (tests.test_ex14_refatoracao.TestEx14.test_binaria_igual_ao_original) ... ok
+test_bubble_igual_ao_original (tests.test_ex14_refatoracao.TestEx14.test_bubble_igual_ao_original) ... ok
+test_bubble_nao_altera_entrada (tests.test_ex14_refatoracao.TestEx14.test_bubble_nao_altera_entrada) ... ok
+test_exemplos_das_aulas (tests.test_ex14_refatoracao.TestEx14.test_exemplos_das_aulas) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.082s
+
+OK

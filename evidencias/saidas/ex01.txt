@@ -1,0 +1,25 @@
+Exercício 1: busca linear em 10.000 inteiros distintos (não ordenados)
+──────────────────────────────────────────────────────────────────────
+primeiros elementos: [83811, 14593, 3279, 97197, 36049, 32099, 29257, 18290] ...
+[OK] 10.000 valores distintos
+[OK] array não ordenado
+
+alvo = arr[0] = 83811  ->  índice 0, comparações: 1
+[OK] elemento na 1ª posição: 1 comparação (melhor caso)
+
+Mesma busca para outras posições do alvo
+────────────────────────────────────────
+caso              índice  comparações
+────────────────  ──────  ───────────
+primeira posição       0            1
+meio (N//2)         5000        5.001
+última posição      9999       10.000
+ausente               -1       10.000
+
+Pior caso (alvo ausente) com N crescente
+────────────────────────────────────────
+N        comparações  razão
+───────  ───────────  ─────
+1.000          1.000    1·N
+10.000        10.000    1·N
+100.000      100.000    1·N

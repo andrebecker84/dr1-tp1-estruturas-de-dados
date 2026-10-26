@@ -1,0 +1,20 @@
+Exercício 5: maior número único: original O(N²) x otimizada O(N)
+────────────────────────────────────────────────────────────────
+entrada                      original  otimizada
+───────────────────────────  ────────  ─────────
+[5, 7, 3, 9, 4, 9, 8, 3, 1]         8          8
+[2, 2, 3, 3]                     None       None
+[]                               None       None
+[42]                               42         42
+[-5, -1, -1, -7]                   -5         -5
+[10, 10, 9]                         9          9
+[OK] mesmo resultado nos 56 casos (6 acima + 50 aleatórios com N = 200)
+
+Passos executados em função de N
+────────────────────────────────
+N      original (N²)  otimizada (≤ 2N)  redução
+─────  ─────────────  ────────────────  ───────
+10               100                17       6x
+100           10.000               158      63x
+1.000      1.000.000             1.625     615x
+5.000     25.000.000             8.143    3070x

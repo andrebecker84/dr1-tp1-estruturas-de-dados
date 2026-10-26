@@ -1,0 +1,28 @@
+Exercício 2: 13 cartas de espadas, só trocas entre vizinhas
+───────────────────────────────────────────────────────────
+estado inicial:  8  7  3 10  K  6  Q  9  4  5  A  2  J 
+
+passagem  fila após a passagem                    comparações  trocas
+────────  ──────────────────────────────────────  ───────────  ──────
+       1   7  3  8 10  6  Q  9  4  5  A  2  J  K           12      10
+       2   3  7  8  6 10  9  4  5  A  2  J  Q  K           11       8
+       3   3  7  6  8  9  4  5  A  2 10  J  Q  K           10       6
+       4   3  6  7  8  4  5  A  2  9 10  J  Q  K            9       5
+       5   3  6  7  4  5  A  2  8  9 10  J  Q  K            8       4
+       6   3  6  4  5  A  2  7  8  9 10  J  Q  K            7       4
+       7   3  4  5  A  2  6  7  8  9 10  J  Q  K            6       4
+       8   3  4  A  2  5  6  7  8  9 10  J  Q  K            5       2
+       9   3  A  2  4  5  6  7  8  9 10  J  Q  K            4       2
+      10   A  2  3  4  5  6  7  8  9 10  J  Q  K            3       2
+      11   A  2  3  4  5  6  7  8  9 10  J  Q  K            2       0
+
+estado final:    A  2  3  4  5  6  7  8  9 10  J  Q  K
+total: 11 passagens, 77 comparações, 47 trocas
+[OK] fila em ordem crescente A..K
+
+Custo nos cenários extremos (N = 13)
+────────────────────────────────────
+cenário                    passagens  comparações  trocas
+─────────────────────────  ─────────  ───────────  ──────
+já ordenada (melhor caso)          1           12       0
+ordem inversa (pior caso)         12           78      78

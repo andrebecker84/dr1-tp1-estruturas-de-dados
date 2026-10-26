@@ -1,0 +1,17 @@
+Exercício 12: clássico x otimizado (mesmos dados do Exercício 11)
+─────────────────────────────────────────────────────────────────
+N        cenário  comp. clássico  comp. otimizado  ganho  trocas (ambos)  passagens
+─────  ─────────  ──────────────  ───────────────  ─────  ──────────────  ─────────
+10      ordenada              45                9  80.0%               0        1/9
+10     aleatória              45               45   0.0%              28        9/9
+10       inversa              45               45   0.0%              45        9/9
+100     ordenada           4.950               99  98.0%               0       1/99
+100    aleatória           4.950            4.940   0.2%           2.502      95/99
+100      inversa           4.950            4.950   0.0%           4.950      99/99
+1.000   ordenada         499.500              999  99.8%               0      1/999
+1.000  aleatória         499.500          499.149   0.1%         248.445    973/999
+1.000    inversa         499.500          499.500   0.0%         499.500    999/999
+[OK] mesma saída e mesmo número de trocas nas duas versões
+
+ordenada: N-1 comparações (1 passagem) -> melhor caso O(N)
+inversa:  N(N-1)/2 comparações, sem ganho -> pior caso continua O(N²)

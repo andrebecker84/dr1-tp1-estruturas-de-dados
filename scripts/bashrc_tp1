@@ -1,0 +1,7 @@
+# rcfile do bash das capturas: carrega o ~/.bashrc normal do usuario (prompt colorido, aliases)
+# e avisa o tmux a cada prompt, para o roteiro saber que o comando anterior terminou.
+# O aviso nao aparece na tela: PROMPT_COMMAND roda antes do prompt, sem eco.
+[ -f ~/.bashrc ] && . ~/.bashrc
+export PROMPT_COMMAND='tmux wait-for -S pronto'
+# Sem __pycache__ no diretorio de trabalho (apareceria no ls -l da Figura 1).
+export PYTHONDONTWRITEBYTECODE=1

@@ -1,0 +1,20 @@
+Exercício 6: menor quadrado com grãos >= qtd_graos
+──────────────────────────────────────────────────
+faixa                                  qtd_graos  quadrado  iterações
+────────────────────  ──────────────────────────  ────────  ─────────
+pequeno                                        1         1          1
+pequeno                                        2         2          2
+pequeno                                        4         3          3
+pequeno                                        8         4          4
+pequeno                                        5         4          4
+intermediário                              1.000        11         11
+intermediário                          1.000.000        21         21
+limite                 9.223.372.036.854.775.808        64         64
+acima do quadrado 64   9.223.372.036.854.775.809  mensagem         64
+acima do total        18.446.744.073.709.551.616  mensagem         64
+[OK] todos os resultados conferem com o esperado
+
+mensagem para 18.446.744.073.709.551.616 grãos:
+  valor excede o limite do tabuleiro (máximo de 9.223.372.036.854.775.808 grãos, no quadrado 64)
+total do tabuleiro: 18.446.744.073.709.551.615 grãos (2^64 - 1)
+[OK] entrada inválida rejeitada: qtd_graos deve ser um inteiro positivo

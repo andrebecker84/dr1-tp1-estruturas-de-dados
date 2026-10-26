@@ -1,0 +1,26 @@
+Exercício 10: Bubble Sort para strings
+──────────────────────────────────────
+1) minúsculas sem acento
+  entrada: ['uva', 'banana', 'abacate', 'manga', 'caju', 'laranja']
+  saída:   ['abacate', 'banana', 'caju', 'laranja', 'manga', 'uva']
+2) prefixos: o menor prefixo vem antes
+  entrada: ['casamento', 'casa', 'cas', 'casarão', 'caso']
+  saída:   ['cas', 'casa', 'casamento', 'casarão', 'caso']
+3) maiúsculas/minúsculas, ordem lexicográfica pura (código Unicode)
+  entrada: ['banana', 'Zebra', 'abacate', 'Maçã']
+  saída:   ['Maçã', 'Zebra', 'abacate', 'banana']
+4) mesmo conjunto com chave_alfabetica, ordem de dicionário
+  entrada: ['banana', 'Zebra', 'abacate', 'Maçã']
+  saída:   ['abacate', 'banana', 'Maçã', 'Zebra']
+5) acentos, ordem lexicográfica pura
+  entrada: ['ética', 'ervilha', 'zebra', 'ábaco', 'abelha']
+  saída:   ['abelha', 'ervilha', 'zebra', 'ábaco', 'ética']
+6) acentos com chave_alfabetica
+  entrada: ['ética', 'ervilha', 'zebra', 'ábaco', 'abelha']
+  saída:   ['ábaco', 'abelha', 'ervilha', 'ética', 'zebra']
+7) números como texto: comparação dígito a dígito
+  entrada: ['10', '9', '100', '2', '1']
+  saída:   ['1', '10', '100', '2', '9']
+
+[OK] todas as saídas ordenadas sob o critério usado e com as mesmas palavras
+códigos: 'Z'=90 < 'a'=97 < 'z'=122 < 'á'=225
