@@ -44,8 +44,8 @@ Os blocos "codigo", "inclui" e "video" são preenchidos por scripts/tp1_fonte.py
 - [Exercício 14: Refatoração](#exercicio-14)
 
 **Parte III · Entrega**
-- [Vídeo](#video)
 - [Referências](#referencias)
+- [Vídeo](#video)
 
 ---
 <!-- /so-github -->
@@ -1124,14 +1124,6 @@ as tuplas (resultado, contador) das duas versões com `assertEqual`, em 207 list
 procurei todos os valores presentes e mais três ausentes. Os 4 testes passaram, junto com os
 15 testes do núcleo em `src/tests/test_algoritmos.py`.
 
-<a id="video"></a>
-
-## Vídeo
-
-<!-- video: -->
-**Link do vídeo:** a inserir.
-<!-- /video -->
-
 <a id="referencias"></a>
 
 ## Referências
@@ -1140,3 +1132,11 @@ procurei todos os valores presentes e mais três ausentes. Os 4 testes passaram,
 - WENGROW, J. *A Common-Sense Guide to Data Structures and Algorithms*. Caps. 1 a 7.
 - BHARGAVA, A. *Grokking Algorithms*. Caps. 1 e 2.
 - GOODRICH, M.; TAMASSIA, R.; GOLDWASSER, M. *Data Structures and Algorithms in Python*. Caps. 1 a 3.
+
+<a id="video"></a>
+
+## Vídeo
+
+<!-- video: -->
+**Link do vídeo:** a inserir.
+<!-- /video -->

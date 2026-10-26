@@ -213,6 +213,16 @@ python ex01_busca_linear.py
 python ex13_comparacao_buscas.py
 ```
 
+### Menu de demonstração
+
+O `demo.py` reúne tudo num menu: cada opção mostra o comando, roda o exercício com um progresso em
+braile, exibe a saída e volta ao menu. Foi o que usei no vídeo.
+
+```bash
+cd src
+python demo.py
+```
+
 ### Testes
 
 ```bash
@@ -290,6 +300,7 @@ DR1_TP1/
 │   ├── tests/               testes do núcleo e do Exercício 14
 │   ├── dados.py             entradas dos experimentos
 │   ├── verificacao.py       conferência das ordenações
+│   ├── demo.py              menu de demonstração usado no vídeo
 │   └── ex01 ... ex14        um script por exercício
 ├── docs/
 │   ├── RELATORIO_TP1.md     relatório técnico, com os prints

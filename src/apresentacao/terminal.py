@@ -1,21 +1,24 @@
 """Saída no terminal: títulos, tabelas e o resultado das verificações."""
+import os
 import sys
 
-COLORIDO = sys.stdout.isatty()      # redirecionada para arquivo, a saída sai sem cores
+# Redirecionada para arquivo, a saída sai sem cores. FORCE_COLOR=1 mantém as cores quando outro
+# programa captura a saída para exibir (o menu do demo.py).
+COLORIDO = sys.stdout.isatty() or os.environ.get("FORCE_COLOR") == "1"
 
 
-def _cor(codigo, texto):
+def cor(codigo, texto):
     return f"\033[{codigo}m{texto}\033[0m" if COLORIDO else texto
 
 
 def titulo(texto):
-    print(_cor("1;36", texto))
-    print(_cor("2", "─" * len(texto)))
+    print(cor("1;36", texto))
+    print(cor("2", "─" * len(texto)))
 
 
 def ok(condicao, descricao):
     """Imprime [OK] ou [FALHA] com a descrição."""
-    marca = _cor("1;32", "[OK]") if condicao else _cor("1;31", "[FALHA]")
+    marca = cor("1;32", "[OK]") if condicao else cor("1;31", "[FALHA]")
     print(f"{marca} {descricao}")
 
 
@@ -28,7 +31,7 @@ def tabela(cabecalho, linhas, alinhamento=None):
     def formatar(linha):
         return "  ".join(f"{celula:{a}{w}}" for celula, a, w in zip(linha, alinhamento, larguras))
 
-    print(_cor("1", formatar([str(c) for c in cabecalho])))
+    print(cor("1", formatar([str(c) for c in cabecalho])))
     print("  ".join("─" * w for w in larguras))
     for linha in linhas:
         print(formatar(linha))
