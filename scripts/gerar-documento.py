@@ -9,10 +9,10 @@ documento do TP1 - inclusive a faixa decorativa que precede cada titulo de secao
 processo usado no DR2-TP1 (Sistemas Operacionais), trocando disciplina, professor e codigo da
 entrega. A capa fica como no molde: so Aluno e Professor, sem Bloco nem Turma.
 
-O texto vem de docs/tp1.md, o mesmo arquivo que gera o notebook (scripts/gerar-notebook.py). As
+O texto vem de docs/RELATORIO_TP1.md, o mesmo arquivo que gera o notebook (scripts/gerar-notebook.py). As
 telas (evidencias/telas/NN-*.png) saem de scripts/capturar_telas.sh + renderizar_telas.py.
 
-carregar_conteudo() traduz o docs/tp1.md para as convencoes abaixo, que o resto do script monta:
+carregar_conteudo() traduz o docs/RELATORIO_TP1.md para as convencoes abaixo, que o resto do script monta:
   ##              titulo de secao, com faixa decorativa
   ###             subtitulo
   - item          lista com marcador (numeracao 8 do molde)
@@ -30,7 +30,7 @@ argumento um diretorio com o pacote ja desempacotado.
 """
 import glob, io, os, re, shutil, struct, sys, tempfile, zipfile
 
-from tp1_fonte import sincronizar, trecho as trecho_funcoes
+from tp1_fonte import para_geradores, sincronizar, trecho as trecho_funcoes
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MOLDE = sys.argv[1] if len(sys.argv) > 1 else os.path.join(
@@ -57,11 +57,11 @@ DATA_ENTREGA = '26/10/2026'
 _dia, _mes, _ano = DATA_ENTREGA.split('/')
 DATA_ISO = '%s-%s-%sT00:00:00' % (_ano, _mes, _dia)
 
-# Texto do documento: o mesmo docs/tp1.md que gera o notebook (scripts/tp1_fonte.py), traduzido
+# Texto do documento: o mesmo docs/RELATORIO_TP1.md que gera o notebook (scripts/tp1_fonte.py), traduzido
 # para as convencoes deste gerador. No PDF ficam de fora os enunciados, as celulas so do notebook e
 # os graficos; entram os trechos de codigo, as telas e as respostas.
 def carregar_conteudo():
-    linhas = sincronizar().split('\n')
+    linhas = para_geradores(sincronizar()).split('\n')
     saida, pular, i = [], False, 0
 
     def ate(fim):
@@ -107,7 +107,7 @@ def carregar_conteudo():
 CONTEUDO = carregar_conteudo()
 
 # Link do video de defesa no Google Drive institucional ("qualquer pessoa com o link"): vem do bloco
-# "<!-- video: URL -->" do docs/tp1.md. Enquanto estiver vazio, o documento mostra a caixa.
+# "<!-- video: URL -->" do docs/RELATORIO_TP1.md. Enquanto estiver vazio, o documento mostra a caixa.
 _video = re.search(r'^@@video[ \t]*(\S*)', CONTEUDO, re.M)
 VIDEO_URL = _video.group(1) if _video else ''
 

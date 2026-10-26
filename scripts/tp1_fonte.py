@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-"""Preenche os blocos automaticos de docs/tp1.md a partir de src/.
+"""Preenche os blocos automaticos de docs/RELATORIO_TP1.md a partir de src/.
 
     python scripts/tp1_fonte.py
 
-O docs/tp1.md e lido direto no GitHub, entao o codigo e a conclusao do Exercicio 13 precisam estar
+O docs/RELATORIO_TP1.md e lido direto no GitHub, entao o codigo e a conclusao do Exercicio 13 precisam estar
 escritos nele. Para nao copiar a mao (e desatualizar), cada bloco marcado com comentario HTML e
 regerado aqui:
 
@@ -17,7 +17,7 @@ import ast, io, os, re
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(RAIZ, 'src')
-TP1 = os.path.join(RAIZ, 'docs', 'tp1.md')
+TP1 = os.path.join(RAIZ, 'docs', 'RELATORIO_TP1.md')
 
 BLOCO = re.compile(r'<!-- (codigo|inclui|video):[ \t]*(.*?) -->\n.*?<!-- /\1 -->', re.S)
 
@@ -71,6 +71,12 @@ def sincronizar():
     if novo != texto:
         io.open(TP1, 'w', encoding='utf-8', newline='\n').write(novo)
     return novo
+
+
+def para_geradores(texto):
+    """Tira o que só serve no GitHub: o bloco so-github (sumário) e as âncoras <a id>."""
+    texto = re.sub(r'<!-- so-github -->.*?<!-- /so-github -->\n?', '', texto, flags=re.S)
+    return re.sub(r'^<a id="[^"]*"></a>\n', '', texto, flags=re.M)
 
 
 if __name__ == '__main__':

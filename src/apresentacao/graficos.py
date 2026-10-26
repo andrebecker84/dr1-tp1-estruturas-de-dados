@@ -1,7 +1,7 @@
 """Estilo dos gráficos do notebook (matplotlib).
 
 Só o notebook usa este arquivo; os scripts dos exercícios continuam só com a biblioteca padrão.
-Cada gráfico também é salvo em evidencias/graficos/ para aparecer no README e no docs/tp1.md.
+Cada gráfico também é salvo em evidencias/graficos/ para aparecer no README e no docs/RELATORIO_TP1.md.
 """
 import os
 

@@ -1,18 +1,61 @@
-# DR1 TP1: Velocidade e Qualidade com Estruturas de Dados e Algoritmos
+# Busca, Ordenação e Big O em Python
 
-**Aluno:** André Luis Becker  
-**Professor:** Ian Monteiro Nunes  
-**Instituto Infnet**, trimestre 26E4
+>**DR1-TP1 · Bloco Ciência da Computação**
+Disciplina: Velocidade e Qualidade com Estruturas de Dados e Algoritmos
+Trimestre: 26E4
+Professor: Ian Monteiro Nunes
+Aluno: André Luis Becker
+Sala: GRLENGR2C2-N2-L1
+Repositório: [andrebecker84/dr1-tp1-estruturas-de-dados](https://github.com/andrebecker84/dr1-tp1-estruturas-de-dados)
 
 <!--
-Fonte do notebook (scripts/gerar-notebook.py) e do PDF (scripts/gerar-documento.py).
-Os blocos "codigo", "inclui" e "video" são preenchidos por scripts/tp1_fonte.py.
+Fonte do notebook (scripts/gerar-notebook.py) e do documento de entrega (scripts/gerar-documento.py).
+Os blocos "codigo", "inclui" e "video" são preenchidos por scripts/tp1_fonte.py; o que fica entre
+"so-github" e as âncoras <a id> aparecem só aqui, no GitHub.
 -->
+
+<!-- so-github -->
+> Relatório técnico completo. Cobre os 14 exercícios do [enunciado](context/enunciado-DR1-TP1.md) e
+> os 10 critérios da [rúbrica](context/rubrica-DR1-TP1.md). Cada exercício traz o enunciado, a teoria
+> das aulas, o trecho de código, o print da execução no terminal e a minha resposta. O mesmo conteúdo,
+> com o código executado e os gráficos, está no [notebook](../DR1_TP1.ipynb).
+
+---
+
+## Sumário
+
+**Parte I · Contexto**
+- [Apresentação](#apresentacao)
+
+**Parte II · Os 14 exercícios**
+- [Exercício 1: Busca linear instrumentada](#exercicio-1)
+- [Exercício 2: Ordenação com cartas](#exercicio-2)
+- [Exercício 3: Busca linear (análise manual)](#exercicio-3)
+- [Exercício 4: Busca binária (análise manual)](#exercicio-4)
+- [Exercício 5: Otimização de O(N²) para O(N)](#exercicio-5)
+- [Exercício 6: Tabuleiro de xadrez e grãos de arroz](#exercicio-6)
+- [Exercício 7: Notação Big O (análise de código)](#exercicio-7)
+- [Exercício 8: Bubble Sort bidirecional (Cocktail Sort)](#exercicio-8)
+- [Exercício 9: Bubble Sort numérico](#exercicio-9)
+- [Exercício 10: Bubble Sort para strings](#exercicio-10)
+- [Exercício 11: Instrumentação do Bubble Sort](#exercicio-11)
+- [Exercício 12: Bubble Sort otimizado](#exercicio-12)
+- [Exercício 13: Comparação de estratégias de busca](#exercicio-13)
+- [Exercício 14: Refatoração](#exercicio-14)
+
+**Parte III · Entrega**
+- [Vídeo](#video)
+- [Referências](#referencias)
+
+---
+<!-- /so-github -->
+
+<a id="apresentacao"></a>
 
 ## Apresentação
 
-Implementei os 14 exercícios em Python 3.12, só com a biblioteca padrão, e rodei tudo no terminal do
-Ubuntu (WSL2). Como na Aula 1, meço eficiência contando passos (comparações e trocas), não tempo. Os
+Implementei os 14 exercícios em Python 3.15.2, só com a biblioteca padrão. Os prints são do terminal
+do Ubuntu (WSL2), com Python 3.12.3, e as saídas são idênticas nas duas versões. Como na Aula 1, meço eficiência contando passos (comparações e trocas), não tempo. Os
 dados aleatórios usam `random.seed(42)`, então os números se repetem em toda execução, e cada script
 confere o próprio resultado com `[OK]` ou `[FALHA]`.
 
@@ -43,6 +86,8 @@ testes de `src/tests/` conferem o núcleo. Para rodar: `cd src` e `python3 ex01_
 import sys
 sys.path.insert(0, "src")
 -->
+
+<a id="exercicio-1"></a>
 
 ## Exercício 1: Busca linear instrumentada
 
@@ -90,6 +135,8 @@ Esse é o melhor caso, então testei outras posições: o elemento do meio custo
 último ou um valor ausente custou 10.000. Com o alvo ausente e N = 1.000, 10.000 e 100.000, as
 comparações foram exatamente N. O custo cresce na mesma proporção da entrada: **O(N)**. O gargalo é
 que, num array sem ordem, uma comparação não elimina nenhuma outra posição.
+
+<a id="exercicio-2"></a>
 
 ## Exercício 2: Ordenação com cartas
 
@@ -174,6 +221,8 @@ Custo: no pior caso (ordem inversa) são 12 + 11 + ... + 1 = 78 comparações e 
 com N = 13, então **O(N²)**. Com a fila já ordenada, uma passagem sem trocas basta: 12 comparações,
 **O(N)**. No exemplo embaralhado foram 77 comparações e 47 trocas.
 
+<a id="exercicio-3"></a>
+
 ## Exercício 3: Busca linear (análise manual)
 
 ### Enunciado
@@ -217,6 +266,8 @@ Foram **4 comparações**. O 8 está no índice 3, e antes dele a busca precisa 
 uma comparação para cada. Um valor no índice i custa i + 1 comparações. Com N = 7, o melhor caso é 1
 comparação e o pior é 7 (último elemento ou valor ausente). O número de passos cresce junto com o
 tamanho do array: **O(N)**.
+
+<a id="exercicio-4"></a>
 
 ## Exercício 4: Busca binária (análise manual)
 
@@ -295,6 +346,8 @@ A diferença aumenta com N (gráfico acima, em escala logarítmica): para 1.000.
 linear pode precisar de 1.000.000 de comparações e a binária de 20. Dobrar o array acrescenta só um
 passo na binária. A linear é **O(N)** e a binária é **O(log N)**, desde que o array esteja ordenado.
 
+<a id="exercicio-5"></a>
+
 ## Exercício 5: Otimização de O(N²) para O(N)
 
 ### Enunciado
@@ -371,6 +424,8 @@ As duas versões deram o mesmo resultado nos 56 casos de teste. Com N = 1.000, a
 1.000.000 de passos e a nova, 1.625; com N = 5.000, 25.000.000 contra 8.143. O preço é a memória
 extra do dicionário, como na Aula 4.
 
+<a id="exercicio-6"></a>
+
 ## Exercício 6: Tabuleiro de xadrez e grãos de arroz
 
 ### Enunciado
@@ -429,6 +484,8 @@ O número de iterações é o índice do quadrado encontrado, log₂(qtd_graos) 
 1, porque os grãos dobram a cada volta. A solução é **O(log Q)**, com Q = qtd_graos, e nunca passa de
 64 iterações. Somar grão por grão seria O(Q), algo como 9 × 10¹⁸ iterações.
 
+<a id="exercicio-7"></a>
+
 ## Exercício 7: Notação Big O (análise de código)
 
 ### Enunciado
@@ -475,6 +532,8 @@ def only_a_strings(strings):
 
 Para conferir, rodei uma cópia da função com contadores: de N = 10 a 100.000 as iterações foram
 exatamente N e, no pior caso, as operações foram exatamente 3N.
+
+<a id="exercicio-8"></a>
 
 ## Exercício 8: Bubble Sort bidirecional (Cocktail Sort)
 
@@ -534,6 +593,8 @@ A diferença aparece quando o menor valor está no fim: no Bubble Sort ele leva 
 chegar ao começo, e no Cocktail Sort chega em uma volta. Na ordem inversa não há ganho. Os dois
 continuam **O(N²)** no pior caso e no caso médio, e **O(N)** com a lista já ordenada: o ganho do
 Cocktail é de constante e depende da entrada.
+
+<a id="exercicio-9"></a>
 
 ## Exercício 9: Bubble Sort numérico
 
@@ -599,6 +660,8 @@ Python em 500 listas aleatórias, só como referência. Tudo deu `[OK]`.
 Essa versão faz N(N−1)/2 comparações mesmo com a lista já ordenada, por isso é **O(N²)** em qualquer
 caso. A correção disso é o Exercício 12.
 
+<a id="exercicio-10"></a>
+
 ## Exercício 10: Bubble Sort para strings
 
 ### Enunciado
@@ -646,6 +709,8 @@ minúsculo e tira os acentos, a ordem fica alfabética como num dicionário.
 Validei cada saída como no Exercício 9, usando o mesmo critério de comparação. A complexidade
 continua **O(N²)**; para strings longas cada comparação custa até o tamanho L da palavra, mas aqui as
 palavras são curtas e L é constante.
+
+<a id="exercicio-11"></a>
 
 ## Exercício 11: Instrumentação do Bubble Sort
 
@@ -736,6 +801,8 @@ Quando N foi multiplicado por 10, as comparações foram multiplicadas por cerca
 as curvas são parábolas. No pior caso, comparações mais trocas deram 90, 9.900 e 999.000, exatamente
 N² − N. O crescimento é quadrático: **O(N²)**.
 
+<a id="exercicio-12"></a>
+
 ## Exercício 12: Bubble Sort otimizado
 
 ### Enunciado
@@ -816,6 +883,8 @@ troca. O número de trocas foi igual nas duas versões: a otimização só corta
 
 Na Big O, o pior caso e o caso médio continuam **O(N²)**, mas o melhor caso caiu de O(N²) para
 **O(N)**. Vale a pena para dados quase ordenados e não custa nada nos outros casos.
+
+<a id="exercicio-13"></a>
 
 ## Exercício 13: Comparação de estratégias de busca
 
@@ -929,6 +998,8 @@ Minha conclusão: se a lista já está ordenada, uso a busca binária. Se não e
 vezes, a linear sai mais barata. Ordenar antes só vale quando a mesma lista recebe muitas buscas,
 mais de 23 neste caso.
 <!-- /inclui -->
+
+<a id="exercicio-14"></a>
 
 ## Exercício 14: Refatoração
 
@@ -1053,11 +1124,15 @@ as tuplas (resultado, contador) das duas versões com `assertEqual`, em 207 list
 procurei todos os valores presentes e mais três ausentes. Os 4 testes passaram, junto com os
 15 testes do núcleo em `src/tests/test_algoritmos.py`.
 
+<a id="video"></a>
+
 ## Vídeo
 
 <!-- video: -->
 **Link do vídeo:** a inserir.
 <!-- /video -->
+
+<a id="referencias"></a>
 
 ## Referências
 

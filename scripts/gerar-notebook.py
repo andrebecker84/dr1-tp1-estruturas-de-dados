@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-"""Monta e executa o notebook DR1_TP1.ipynb a partir de docs/tp1.md.
+"""Monta e executa o notebook DR1_TP1.ipynb a partir de docs/RELATORIO_TP1.md.
 
     uv run --no-project --python 3.12 --with nbformat --with nbclient --with ipykernel --with matplotlib python scripts/gerar-notebook.py
 
 Cada exercicio vira: enunciado, teoria, codigo (o trecho com as funcoes principais), a execucao do
-script do exercicio, os graficos e a resposta. Como reconhece cada parte do docs/tp1.md:
+script do exercicio, os graficos e a resposta. Como reconhece cada parte do docs/RELATORIO_TP1.md:
   <!-- codigo: ... -->     o bloco ```python dentro dele vira celula de codigo
   <!-- executa: MODULO --> celula que roda MODULO.main(), com a saida gravada no notebook
   <!-- notebook ... -->    celula de codigo que so existe no notebook (graficos, testes)
@@ -18,13 +18,42 @@ import os, re
 import nbformat
 from nbclient import NotebookClient
 
-from tp1_fonte import RAIZ, contexto, sincronizar
+from tp1_fonte import RAIZ, contexto, para_geradores, sincronizar
 
 SAIDA = os.path.join(RAIZ, 'DR1_TP1.ipynb')
+REPOSITORIO = 'https://github.com/andrebecker84/dr1-tp1-estruturas-de-dados'
+
+# Capa do notebook, no mesmo padrão visual do README.
+CAPA = f"""<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1E3A8A,100:2A78D6&height=180&section=header&text=Busca%2C%20Ordena%C3%A7%C3%A3o%20e%20Big%20O&fontSize=46&fontColor=ffffff&fontAlignY=36&desc=DR1-TP1%20%C2%B7%20notebook&descAlignY=58&descSize=17" width="100%" />
+
+# 🔎 Busca, Ordenação e Big O
+
+**Velocidade e Qualidade com Estruturas de Dados e Algoritmos · DR1-TP1**
+
+<img src="https://img.shields.io/badge/Python-3.15.2-3776AB?style=flat-square&logo=python&logoColor=white" />
+<img src="https://img.shields.io/badge/depend%C3%AAncias-s%C3%B3%20biblioteca%20padr%C3%A3o-3776AB?style=flat-square&logo=python&logoColor=white" />
+<img src="https://img.shields.io/badge/unittest-19%20passando-1BAF7A?style=flat-square" />
+<img src="https://img.shields.io/badge/license-source%20available-8957e5?style=flat-square" />
+
+</div>
+
+| | |
+|---|---|
+| **Aluno** | André Luis Becker |
+| **Professor** | Ian Monteiro Nunes |
+| **Disciplina** | Velocidade e Qualidade com Estruturas de Dados e Algoritmos |
+| **Bloco · Trimestre** | Ciência da Computação · 26E4 |
+| **Repositório** | [{REPOSITORIO.split('github.com/')[1]}]({REPOSITORIO}) |
+
+Para cada exercício: o **enunciado**, a **teoria** das aulas, o **código** com a execução, os
+**gráficos** quando ajudam a ver o crescimento, e a minha **resposta**."""
 
 
 def montar(texto):
-    celulas, md = [], []
+    texto = texto[texto.index('\n## '):]        # o cabeçalho do relatório dá lugar à capa
+    celulas, md = [nbformat.v4.new_markdown_cell(CAPA)], []
 
     def codigo(fonte):
         celulas.append(nbformat.v4.new_code_cell(fonte.strip('\n')))
@@ -92,7 +121,7 @@ def montar(texto):
 
 
 if __name__ == '__main__':
-    nb = montar(sincronizar())
+    nb = montar(para_geradores(sincronizar()))
     NotebookClient(nb, timeout=900, kernel_name='python3',
                    resources={'metadata': {'path': RAIZ}}).execute()
     nbformat.write(nb, SAIDA)
