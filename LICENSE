@@ -311,11 +311,7 @@ avalia o projeto.
 A.1. DADOS CONTIDOS NO REPOSITÓRIO
      O repositório NÃO contém dados pessoais de terceiros. Do Titular, constam
      apenas o nome completo e a conta do GitHub, para identificação acadêmica.
-     A matrícula, que na instituição é o CPF, NÃO é publicada: aparece
-     integralmente mascarada (***.***.***-**), sem nenhum dígito, porque um CPF
-     parcial associado ao nome completo já facilita fraude, e máscaras parciais
-     diferentes podem ser cruzadas até reconstruir o número. O número é
-     informado ao professor mediante solicitação.
+     Nenhum documento de identificação é publicado.
 
      As capturas de tela mostram o nome de usuário e o nome da máquina do
      Titular no prompt do terminal, sem nenhum outro dado. Os commits usam o

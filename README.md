@@ -11,7 +11,7 @@
 <br/>
 
 [![Relatório técnico](https://img.shields.io/badge/Relat%C3%B3rio%20t%C3%A9cnico-14%20exerc%C3%ADcios%20%C2%B7%2014%20evid%C3%AAncias-1E3A8A?style=for-the-badge&logo=markdown&logoColor=white)](docs/RELATORIO_TP1.md)
-[![Notebook](https://img.shields.io/badge/Notebook-abrir%20no%20nbviewer-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://nbviewer.org/github/andrebecker84/dr1-tp1-estruturas-de-dados/blob/main/DR1_TP1.ipynb)
+[![Notebook](https://img.shields.io/badge/Notebook-c%C3%B3digo%20executado%20e%20gr%C3%A1ficos-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](DR1_TP1.ipynb)
 
 <br/>
 
@@ -31,21 +31,6 @@
 <sub>Pior caso da busca linear e da busca binária para N de 2 a 1.000.000 (Exercício 4).</sub>
 
 </div>
-
----
-
-<a id="identificacao"></a>
-
-Aluno: André Luis Becker · Matrícula (CPF): `***.***.***-**` (não publicada por proteção de dados pessoais, LGPD; o número é informado ao professor se ele solicitar)
-
-> [!NOTE]
-> **Por que a matrícula não aparece.** No Instituto Infnet, a matrícula do aluno é o CPF. Este
-> repositório é público, e o histórico do Git guarda cada commit para sempre, mesmo que a linha seja
-> apagada depois. Por isso **nenhum dígito do CPF é publicado**: um CPF parcial ao lado do nome
-> completo já facilita fraude e engenharia social, e máscaras diferentes, publicadas em lugares
-> diferentes, podem ser cruzadas até reconstruir o número inteiro. É o princípio da necessidade da
-> LGPD (Lei nº 13.709/2018, art. 6º, III). O aluno fica identificado pelo nome completo e pela conta
-> do GitHub, e o número é informado ao professor mediante solicitação.
 
 ---
 
@@ -92,7 +77,7 @@ Cada script confere o próprio resultado e imprime `[OK]` ou `[FALHA]`. Os dados
 > **Modalidade:** Individual
 
 > **Repositório:** https://github.com/andrebecker84/dr1-tp1-estruturas-de-dados  
-> **Notebook:** [DR1_TP1.ipynb no nbviewer](https://nbviewer.org/github/andrebecker84/dr1-tp1-estruturas-de-dados/blob/main/DR1_TP1.ipynb)
+> **Notebook:** [DR1_TP1.ipynb](https://github.com/andrebecker84/dr1-tp1-estruturas-de-dados/blob/main/DR1_TP1.ipynb)
 
 > [!IMPORTANT]
 > **Leituras do enunciado.**
@@ -237,9 +222,8 @@ python -m unittest discover -s tests -t . -v
 
 ### Notebook
 
-Abra o `DR1_TP1.ipynb` no VS Code ou no Jupyter, ou leia direto no
-[nbviewer](https://nbviewer.org/github/andrebecker84/dr1-tp1-estruturas-de-dados/blob/main/DR1_TP1.ipynb).
-Para executar de novo, os gráficos precisam do `matplotlib`.
+Abra o [`DR1_TP1.ipynb`](DR1_TP1.ipynb) aqui no GitHub, que já mostra as saídas e os gráficos, ou
+no VS Code e no Jupyter. Para executar de novo, os gráficos precisam do `matplotlib`.
 
 > [!TIP]
 > No Linux e no WSL, use `python3` no lugar de `python`. Os resultados são os mesmos em qualquer
