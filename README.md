@@ -185,8 +185,8 @@ flowchart LR
 
 | Item | Uso |
 |---|---|
-| **Python 3.15.2** | Versão de desenvolvimento, no Windows 11. Requer Python 3.11 ou superior (`enum.StrEnum`). |
-| **Python 3.12.3** | Ubuntu 24.04 no WSL2, onde rodaram as execuções dos prints e o vídeo. Saídas idênticas às do 3.15.2. |
+| **Python 3.15.2** | Versão do projeto, fixada no `.python-version` com o `uv`. Usada no Windows 11 e no Ubuntu 24.04 (WSL2), onde rodaram os prints e o vídeo. O código funciona a partir do Python 3.11 (`enum.StrEnum`). |
+| **uv** | Gerenciador de versões do Python: instala o 3.15.2 sem mexer no Python do sistema. |
 | **Biblioteca padrão** | `random`, `math`, `unicodedata`, `collections`, `enum`, `dataclasses`, `unittest`. Os exercícios não têm dependência externa. |
 | **Jupyter + matplotlib** | Só no notebook e nos gráficos. O notebook é executado no Python 3.12, porque o `matplotlib` ainda não tem pacote para o 3.15. |
 | **tmux + Pillow** | Captura das telas do terminal, sem edição, em `scripts/`. |
@@ -202,6 +202,8 @@ flowchart LR
 ### Pré-requisitos
 
 - Python 3.11 ou superior. Nada para instalar além dele.
+- O projeto fixa o **3.15.2** no `.python-version`. Com o [uv](https://docs.astral.sh/uv/), ele é
+  instalado com `uv python install 3.15.2`, e o `uv run python ...` passa a usá-lo nesta pasta.
 
 ### Exercícios
 

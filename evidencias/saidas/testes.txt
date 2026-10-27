@@ -19,6 +19,6 @@ test_bubble_nao_altera_entrada (tests.test_ex14_refatoracao.TestEx14.test_bubble
 test_exemplos_das_aulas (tests.test_ex14_refatoracao.TestEx14.test_exemplos_das_aulas) ... ok
 
 ----------------------------------------------------------------------
-Ran 19 tests in 0.082s
+Ran 19 tests in 0.079s
 
 OK

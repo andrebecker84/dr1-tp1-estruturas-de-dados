@@ -54,8 +54,8 @@ Os blocos "codigo", "inclui" e "video" são preenchidos por scripts/tp1_fonte.py
 
 ## Apresentação
 
-Implementei os 14 exercícios em Python 3.15.2, só com a biblioteca padrão. Os prints são do terminal
-do Ubuntu (WSL2), com Python 3.12.3, e as saídas são idênticas nas duas versões. Como na Aula 1, meço eficiência contando passos (comparações e trocas), não tempo. Os
+Implementei os 14 exercícios em Python 3.15.2, só com a biblioteca padrão, e os prints são do
+terminal do Ubuntu (WSL2), com a mesma versão. Como na Aula 1, meço eficiência contando passos (comparações e trocas), não tempo. Os
 dados aleatórios usam `random.seed(42)`, então os números se repetem em toda execução, e cada script
 confere o próprio resultado com `[OK]` ou `[FALHA]`.
 

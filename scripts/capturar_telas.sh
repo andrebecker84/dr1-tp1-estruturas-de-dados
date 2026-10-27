@@ -23,6 +23,7 @@ FIG=0
 rm -rf "$W"
 mkdir -p "$W" "$ANSI" "$SAIDAS"
 cp -r "$RAIZ"/src/. "$W"/
+cp "$RAIZ"/.python-version "$W"/      # o uv usa o mesmo Python fixado no projeto (3.15.2)
 find "$W" -name __pycache__ -prune -exec rm -rf {} +
 # Vindos de /mnt/c, os arquivos chegariam com permissao de execucao.
 find "$W" -type d -exec chmod 755 {} + && find "$W" -type f -exec chmod 644 {} +
