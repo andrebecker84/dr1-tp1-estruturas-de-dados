@@ -13,7 +13,7 @@ script do exercicio, os graficos e a resposta. Como reconhece cada parte do docs
   outros comentarios HTML          ignorados
 Os graficos sao salvos em evidencias/graficos/ ao executar (src/graficos.py).
 """
-import os, re
+import html, os, re
 
 import nbformat
 from nbclient import NotebookClient
@@ -23,10 +23,8 @@ from tp1_fonte import RAIZ, contexto, para_geradores, sincronizar
 SAIDA = os.path.join(RAIZ, 'DR1_TP1.ipynb')
 REPOSITORIO = 'https://github.com/andrebecker84/dr1-tp1-estruturas-de-dados'
 
-# Capa do notebook, no mesmo padrão visual do README.
-CAPA = f"""<div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1E3A8A,100:2A78D6&height=180&section=header&text=Busca%2C%20Ordena%C3%A7%C3%A3o%20e%20Big%20O&fontSize=46&fontColor=ffffff&fontAlignY=36&desc=DR1-TP1%20%C2%B7%20notebook&descAlignY=58&descSize=17" width="100%" />
+# Capa do notebook, no mesmo padrão visual do README, alinhada à esquerda.
+CAPA = f"""<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1E3A8A,100:2A78D6&height=180&section=header&text=Busca%2C%20Ordena%C3%A7%C3%A3o%20e%20Big%20O&fontSize=46&fontColor=ffffff&fontAlignY=36&desc=DR1-TP1%20%C2%B7%20notebook&descAlignY=58&descSize=17" width="100%" />
 
 # 🔎 Busca, Ordenação e Big O
 
@@ -36,8 +34,6 @@ CAPA = f"""<div align="center">
 <img src="https://img.shields.io/badge/depend%C3%AAncias-s%C3%B3%20biblioteca%20padr%C3%A3o-3776AB?style=flat-square&logo=python&logoColor=white" />
 <img src="https://img.shields.io/badge/unittest-19%20passando-1BAF7A?style=flat-square" />
 <img src="https://img.shields.io/badge/license-source%20available-8957e5?style=flat-square" />
-
-</div>
 
 | | |
 |---|---|
@@ -51,9 +47,48 @@ Para cada exercício: o **enunciado**, a **teoria** das aulas, o **código** com
 **gráficos** quando ajudam a ver o crescimento, e a minha **resposta**."""
 
 
+ESTILO_TABELA = 'style="margin-left: 0; margin-right: auto"'
+
+
+def em_html(texto):
+    """Negrito, itálico, código e links de uma célula de tabela, convertidos para HTML."""
+    texto = html.escape(texto, quote=False)
+    texto = re.sub(r'`([^`]+)`', r'<code>\1</code>', texto)
+    texto = re.sub(r'\*\*([^*]+)\*\*', r'<b>\1</b>', texto)
+    texto = re.sub(r'\*([^*]+)\*', r'<i>\1</i>', texto)
+    return re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', texto)
+
+
+def tabela_html(linhas):
+    """Tabela markdown em HTML, alinhada à esquerda: o VS Code centraliza as tabelas de markdown."""
+    celulas = [[c.strip() for c in linha.strip().strip('|').split('|')] for linha in linhas]
+    cabecalho, corpo = celulas[0], celulas[2:]
+    topo = ''.join(f'<th align="left">{em_html(c)}</th>' for c in cabecalho) if any(cabecalho) else ''
+    linhas_html = ''.join('<tr>' + ''.join(f'<td align="left">{em_html(c)}</td>' for c in linha) + '</tr>' for linha in corpo)
+    thead = f'<thead><tr>{topo}</tr></thead>' if topo else ''
+    return f'<table {ESTILO_TABELA}>{thead}<tbody>{linhas_html}</tbody></table>'
+
+
+def tabelas_em_html(markdown):
+    saida, tabela = [], []
+    for linha in markdown.split('\n') + ['']:
+        if linha.startswith('|'):
+            tabela.append(linha)
+            continue
+        if tabela:
+            saida.append(tabela_html(tabela))
+            tabela = []
+        saida.append(linha)
+    return '\n'.join(saida[:-1])
+
+
+def celula_markdown(texto):
+    return nbformat.v4.new_markdown_cell(tabelas_em_html(texto))
+
+
 def montar(texto):
     texto = texto[texto.index('\n## '):]        # o cabeçalho do relatório dá lugar à capa
-    celulas, md = [nbformat.v4.new_markdown_cell(CAPA)], []
+    celulas, md = [celula_markdown(CAPA)], []
 
     def codigo(fonte):
         celulas.append(nbformat.v4.new_code_cell(fonte.strip('\n')))
@@ -61,7 +96,7 @@ def montar(texto):
     def fecha_md():
         bloco = '\n'.join(md).strip('\n')
         if bloco:
-            celulas.append(nbformat.v4.new_markdown_cell(bloco))
+            celulas.append(celula_markdown(bloco))
         md.clear()
 
     linhas = texto.split('\n')
