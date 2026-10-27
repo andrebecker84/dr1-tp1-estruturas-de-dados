@@ -12,6 +12,7 @@
 
 [![Relatório técnico](https://img.shields.io/badge/Relat%C3%B3rio%20t%C3%A9cnico-14%20exerc%C3%ADcios%20%C2%B7%2014%20evid%C3%AAncias-1E3A8A?style=for-the-badge&logo=markdown&logoColor=white)](docs/RELATORIO_TP1.md)
 [![Notebook](https://img.shields.io/badge/Notebook-c%C3%B3digo%20executado%20e%20gr%C3%A1ficos-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](DR1_TP1.ipynb)
+[![Vídeo](https://img.shields.io/badge/V%C3%ADdeo-defesa%20do%20trabalho-EA4335?style=for-the-badge&logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1RDlpvvhzgyBlMkiImijppKDe4PJ3dIQB/view?usp=sharing)
 
 <br/>
 
@@ -326,6 +327,8 @@ DR1_TP1/
 Entrega concluída. Os 14 exercícios estão implementados, executados e documentados, e os 19 testes
 passam. O documento de entrega (`andre_becker_DR1_TP1.pdf`, com os prints e o link do vídeo) vai pela
 plataforma do Infnet e não é versionado aqui.
+
+🎥 **Vídeo de defesa:** [assistir no Google Drive](https://drive.google.com/file/d/1RDlpvvhzgyBlMkiImijppKDe4PJ3dIQB/view?usp=sharing)
 
 <p align="right"><a href="#indice">⬆ voltar ao índice</a></p>
 

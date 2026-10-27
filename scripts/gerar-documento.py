@@ -537,7 +537,7 @@ while i < len(linhas):
         corpo.append(trecho(arquivo, funcoes.split(',')))
     elif l.strip().startswith('@@video'):
         if VIDEO_URL:
-            buf_url.append(('Vídeo de defesa do DR1-TP1 · Google Drive', VIDEO_URL))
+            buf_url.append(VIDEO_URL)       # o enunciado pede o link: o endereço fica visível
         else:
             corpo.append(caixa_video())
     elif l.startswith('## '):

@@ -1137,6 +1137,6 @@ procurei todos os valores presentes e mais três ausentes. Os 4 testes passaram,
 
 ## Vídeo
 
-<!-- video: -->
-**Link do vídeo:** a inserir.
+<!-- video: https://drive.google.com/file/d/1RDlpvvhzgyBlMkiImijppKDe4PJ3dIQB/view?usp=sharing -->
+**Link do vídeo:** [assistir no Google Drive](https://drive.google.com/file/d/1RDlpvvhzgyBlMkiImijppKDe4PJ3dIQB/view?usp=sharing)
 <!-- /video -->
